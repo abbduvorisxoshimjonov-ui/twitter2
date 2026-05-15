@@ -40,7 +40,7 @@ const Twitter = () => {
               </span>
               including <span>Cookie Use.</span>
             </p>
-            <Link to="/register">
+            <Link to="/login">
               Already have an account?
               <button className="twit_btn2">Log in</button>{" "}
             </Link>
