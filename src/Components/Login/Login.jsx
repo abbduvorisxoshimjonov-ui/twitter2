@@ -2,7 +2,8 @@ import "./Madal2.css";
 import img2 from "../../assets/2.svg";
 import { useState } from "react";
 
-function Madal2({ setShowMadal2 }) {
+
+const Login = () => {
   const [form2, setForm2] = useState({
     adres: "",
     password: "",
@@ -10,7 +11,6 @@ function Madal2({ setShowMadal2 }) {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    setShowMadal2(false);
     console.log(form2);
   };
 
@@ -52,6 +52,6 @@ function Madal2({ setShowMadal2 }) {
       </div>
     </div>
   );
-}
+};
 
-export default Madal2;
+export default Login;

@@ -1,20 +1,21 @@
-import { useState } from "react";
-import "./App.css";
-import Madal from "./Components/Madal/Madal";
+import { Route, Routes } from "react-router-dom";
+import HomeLayout from "./Layout/HomeLayout";
 import Twitter from "./Components/Twitter/Twitter";
-import Madal2 from "./Components/Madal2/Madal2";
+import Register from "./Components/Register/Register";
+import Login from "./Components/Login/Login";
 
-function App() {
-  const [showMadal, setShowMadal] = useState(false);
-  const [showMadal2, setShowMadal2] = useState(false);
-  
+const App = () => {
   return (
-    <div>
-      <Twitter setShowMadal={setShowMadal} setShowMadal2={setShowMadal2} />
-      {showMadal && <Madal setShowMadal={setShowMadal} />}
-      {showMadal2 && <Madal2 setShowMadal2={setShowMadal2}/>}
-    </div>
+    <>
+      <Routes>
+        <Route path="/" element={<HomeLayout />}>
+          <Route path="/" element={<Twitter />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/login" element={<Login />} />
+        </Route>
+      </Routes>
+    </>
   );
-}
+};
 
 export default App;

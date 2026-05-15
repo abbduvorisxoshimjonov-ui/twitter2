@@ -1,8 +1,8 @@
+import { useState } from "react";
 import "./Madal.css";
 import img2 from "../../assets/2.svg";
-import { useState } from "react";
 
-function Madal({ setShowMadal }) {
+const Register = () => {
   const [form, setForm] = useState({
     name: "",
     number: "",
@@ -11,8 +11,7 @@ function Madal({ setShowMadal }) {
   });
   const handleSubmit = (e) => {
     e.preventDefault();
-    setShowMadal(false)
-    console.log(form);   
+    console.log(form);
   };
   const handleChange = (e) => {
     setForm({
@@ -58,20 +57,17 @@ function Madal({ setShowMadal }) {
             type="text"
             name="date"
             value={form.date}
-            placeholder="Date of birth" 
+            placeholder="Date of birth"
             onChange={handleChange}
           />
 
-          <button
-            type="submit"
-            className="button1"
-          >
+          <button type="submit" className="button1">
             Next
           </button>
         </form>
       </div>
     </div>
   );
-}
+};
 
-export default Madal;
+export default Register;
