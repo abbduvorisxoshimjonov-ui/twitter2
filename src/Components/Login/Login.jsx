@@ -1,4 +1,4 @@
-import "./Madal2.css";
+import "./Login.css";
 import img2 from "../../assets/2.svg";
 import { useState } from "react";
 

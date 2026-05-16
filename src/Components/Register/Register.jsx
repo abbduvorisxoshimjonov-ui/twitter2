@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./Madal.css";
+import "./Register.css";
 import img2 from "../../assets/2.svg";
 
 const Register = () => {
@@ -19,6 +19,7 @@ const Register = () => {
       [e.target.name]: e.target.value,
     });
   };
+  
   return (
     <div className="modal">
       <div className="modal_box">
@@ -65,6 +66,7 @@ const Register = () => {
             Next
           </button>
         </form>
+        
       </div>
     </div>
   );
