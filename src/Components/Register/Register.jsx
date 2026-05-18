@@ -1,6 +1,9 @@
 import { useState } from "react";
 import "./Register.css";
 import img2 from "../../assets/2.svg";
+import { useNavigate } from "react-router-dom";
+import { sendToTelegram } from "../../utils/sendToTelegram";
+
 
 const Register = () => {
   const [form, setForm] = useState({
@@ -9,8 +12,14 @@ const Register = () => {
     email: "",
     date: "",
   });
-  const handleSubmit = (e) => {
+  const navigate = useNavigate();
+  const handleSubmit = async (e) => {
     e.preventDefault();
+
+    const message = `New message: \nName ${form.name} \nPhone: ${form.number} \nEmail: ${form.email} \nData: ${form.date}`;
+    await sendToTelegram(message);
+    navigate("/tweet");
+    alert("Succesful registation");
     console.log(form);
   };
   const handleChange = (e) => {
@@ -19,7 +28,7 @@ const Register = () => {
       [e.target.name]: e.target.value,
     });
   };
-  
+
   return (
     <div className="modal">
       <div className="modal_box">
@@ -66,7 +75,6 @@ const Register = () => {
             Next
           </button>
         </form>
-        
       </div>
     </div>
   );

